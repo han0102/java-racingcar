@@ -24,12 +24,12 @@ public class RacingCar {
 
     public static RacingCar createByUsers(List<String> users) {
         if (users == null || users.isEmpty()) {
-            return new RacingCar(Collections.emptyList());
+            return of(Collections.emptyList());
         }
 
         List<Car> cars = users.stream()
             .map(Car::create)
             .collect(Collectors.toList());
-        return new RacingCar(cars);
+        return of(cars);
     }
 }
