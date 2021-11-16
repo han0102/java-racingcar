@@ -16,7 +16,6 @@ public class Racing {
     private int attempts;
 
     public Racing(List<String> users, int attempts) {
-        throwIfHasInProperUsers(users);
         throwIfHasInProperAttempts(attempts);
         this.racingCar = RacingCar.createByUsers(users);
         this.attempts = attempts;
@@ -41,12 +40,6 @@ public class Racing {
             group.add(car.getInstanceByForward(value));
         }
         return group;
-    }
-
-    private void throwIfHasInProperUsers(List<String> users) {
-        if (users == null || isLessThanOne(users.size())) {
-            throw new IllegalArgumentException();
-        }
     }
 
     private void throwIfHasInProperAttempts(int attempts) {
